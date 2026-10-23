@@ -541,12 +541,6 @@ async function renderDetail(id){
         ${CAMS[r.id] ? "" : `<span class="label" style="text-transform:none;letter-spacing:0">Ingen webbkamera hittad för den här orten.</span>`}
       </div>
       <div class="stats" id="stats"><div class="msg">Hämtar detaljerad prognos…</div></div>
-      <div class="panel" id="aval">
-        <h3>Lavinläge</h3>
-        ${avalOfficial(r)}
-        <details class="scale"><summary>Vad betyder färgerna och nivåerna?</summary>${AVAL_SCALE}</details>
-        <div id="avalsignals"><div class="msg">Räknar på vädret…</div></div>
-      </div>
       <div class="panel">
         <h3>Snöfall per dygn</h3>
         <p class="hint">Mörk stapel = toppen (${r.top} m), ljus = dalen (${r.base} m). Linjen visar max/min-temperatur vid toppen.</p>
@@ -556,6 +550,12 @@ async function renderDetail(id){
         <h3>Timme för timme, kommande 72 h</h3>
         <p class="hint">Snöfall vid mellanhöjd (${r.mid} m) och nollgradersgränsen. Ligger nollgradersgränsen över dalstationen blir det blötsnö eller regn längre ner.</p>
         <div class="chart" id="hourly"></div>
+      </div>
+      <div class="panel" id="aval">
+        <h3>Lavinläge</h3>
+        ${avalOfficial(r)}
+        <details class="scale"><summary>Vad betyder färgerna och nivåerna?</summary>${AVAL_SCALE}</details>
+        <div id="avalsignals"><div class="msg">Räknar på vädret…</div></div>
       </div>
       <div class="panel">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
