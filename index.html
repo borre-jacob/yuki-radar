@@ -137,15 +137,39 @@ footer{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:
 .gform button,.dirbtn{font:inherit;font-size:13px;padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;text-decoration:none;display:inline-block}
 .dirbtn{border-color:var(--snow);color:var(--snow);font-weight:600}
 .dlinks{display:flex;flex-wrap:wrap;gap:6px}
-.sigs{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--line)}
-.sig{display:grid;grid-template-columns:78px minmax(0,1fr);gap:12px;align-items:start;padding:10px 0;border-bottom:1px solid var(--line)}
-.sig p{margin:2px 0 0;font-size:14px;color:var(--muted);max-width:70ch}
+.dcard{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:center;padding:14px;border-radius:12px;border:2px solid var(--dc,var(--line));background:var(--bg)}
+.dcard p{margin:4px 0 0;color:var(--muted);font-size:14px;max-width:70ch}
+.dcard.none{border-style:dashed}
+.dhead-t{font-family:var(--display);font-size:20px;font-weight:700}
+.dlvl{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:7px;font:600 15px var(--mono);flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.dlvl.big{width:58px;height:58px;border-radius:12px;font-size:30px}
+.near{display:block;font-size:12px;color:var(--warn)}
+.bands{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:6px}
+.band{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;column-gap:10px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:10px}
+.band .dlvl{grid-row:1 / 3}
+.band span{font-size:12px;color:var(--muted)} .band b{font-size:14px}
+.probs{display:flex;flex-direction:column;gap:4px}
+details.prob{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+details.prob summary{cursor:pointer;font-weight:600;font-size:14px}
+details.prob p{margin:6px 0 0;font-size:14px;color:var(--muted);max-width:70ch}
+.en{font-weight:400;color:var(--muted);font-size:12px;margin-left:6px}
+#avalsignals{display:flex;flex-direction:column;gap:10px}
+.sigs{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+details.sig{border-bottom:1px solid var(--line)}
+details.sig summary{display:grid;grid-template-columns:78px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;cursor:pointer;list-style:none}
+details.sig summary::-webkit-details-marker{display:none}
+details.sig summary::after{content:"▸";color:var(--muted);grid-column:4}
+details.sig[open] summary::after{content:"▾"}
+details.sig summary{grid-template-columns:78px minmax(0,1fr) auto 12px}
+.sv{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+details.sig p{margin:0 0 12px 90px;font-size:14px;color:var(--muted);max-width:70ch}
+@media (max-width:520px){details.sig p{margin-left:0} .sv{grid-column:2;text-align:left} details.sig summary{grid-template-columns:78px minmax(0,1fr) 12px}}
 .pill{display:inline-block;text-align:center;font-size:12px;font-weight:600;padding:3px 8px;border-radius:999px;border:1px solid var(--c);color:var(--c)}
 .pill.ok{--c:var(--toilet)} .pill.warn{--c:var(--warn)} .pill.bad{--c:var(--lift);background:var(--lift);color:#fff}
 .hint.caution{border-left:3px solid var(--warn);padding-left:10px}
 .scale summary{cursor:pointer;font-size:14px;font-weight:600}
-.scale-list{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted)}
-.scale-list li{padding-left:14px;border-left:6px solid var(--c)}
+.scale-list{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--muted)}
+.scale-list li{display:flex;gap:10px;align-items:flex-start}
 .scale-list b{color:var(--ink);margin-right:6px}
 .dirbtn.cam{border-color:var(--line);color:var(--ink);font-weight:500}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -267,7 +291,7 @@ const store = {
   get(k){ try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } },
   set(k,v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
 };
-const fmt = (v, d=0) => v == null || isNaN(v) ? "–" : Number(v).toFixed(d);
+const fmt = (v, d=0) => { if (v == null || isNaN(v)) return "–"; const x = Number(v).toFixed(d); return /^-0(\.0+)?$/.test(x) ? x.slice(1) : x; };
 // Current hour in Japan, matching Open-Meteo's local ISO strings ("2026-01-20T14:00")
 const jstHourKey = () => new Date(Date.now() + 9*3600e3).toISOString().slice(0,13) + ":00";
 const WD = ["sön","mån","tis","ons","tor","fre","lör"];
@@ -520,8 +544,8 @@ async function renderDetail(id){
       <div class="panel" id="aval">
         <h3>Lavinläge</h3>
         ${avalOfficial(r)}
+        <details class="scale"><summary>Vad betyder färgerna och nivåerna?</summary>${AVAL_SCALE}</details>
         <div id="avalsignals"><div class="msg">Räknar på vädret…</div></div>
-        <details class="scale"><summary>Vad betyder faronivåerna i lavinprognosen?</summary>${AVAL_SCALE}</details>
       </div>
       <div class="panel">
         <h3>Snöfall per dygn</h3>
@@ -606,21 +630,70 @@ const AVAL = {
   rusutsu:{a:6}, kiroro:{a:6}, teine:{a:6,near:true}, kokusai:{a:6,near:true},
   furano:{a:7}, asahidake:{a:7}, kamui:{a:7,near:true}, tomamu:{a:7,near:true}, sahoro:{a:7,near:true},
 };
+// Latest JAN bulletin per area, fetched by tools/fetch_avalanche.py (daily on GitHub) and embedded here.
+const AVALANCHE = /*AVALANCHE*/{"2":{"name":"Hakuba","date":"2026-04-06 05:00","url":"https://data.nadare.jp/avalanche_informations/10574?locale=en","levels":[0,0,0],"advice":"The avalanche bulletin for the 2025/26 season is now closed. Whatever type of avalanche is present, we hope you enjoy the rest of the season, remembering that the most important aspect of avalanche safety is terrain selection.","problems":[],"summary":{"Avalanche":"","Snowpack":"","Weather":""}},"3":{"name":"Myoko","date":"2026-03-30 06:00","url":"https://data.nadare.jp/avalanche_informations/10212?locale=en","levels":[0,0,0],"advice":"2025/26シーズンの雪崩情報を終了しました。どのような種類の雪崩が存在するにせよ、雪崩安全対策に最も重要なのは、地形の選択であることを忘れずに、残りのシーズンを楽しまれてください。","problems":[],"summary":{"Avalanche":"","Snowpack":"","Weather":""}},"4":{"name":"Kagura Tanigawa Hotaka","date":"2026-04-06 05:00","url":"https://data.nadare.jp/avalanche_informations/10573?locale=en","levels":[0,0,0],"advice":"The avalanche bulletin for the 2025/26 season is now closed. Whatever type of avalanche is present, we hope you enjoy the rest of the season, remembering that the most important aspect of avalanche safety is terrain selection.","problems":[],"summary":{"Avalanche":"","Snowpack":"","Weather":""}},"6":{"name":"SW Hokkaido","date":"2026-04-01 06:00","url":"https://data.nadare.jp/avalanche_informations/10376?locale=en","levels":[0,0,0],"advice":"2025/26シーズンの雪崩情報を終了しました。どのような種類の雪崩が存在するにせよ、雪崩安全対策に最も重要なのは、地形の選択であることを忘れずに、残りのシーズンを楽しまれてください。","problems":[],"summary":{"Avalanche":"","Snowpack":"","Weather":""}},"7":{"name":"Central Hokkaido","date":"2026-03-15 05:00","url":"https://data.nadare.jp/avalanche_informations/9319?locale=en","levels":[0,0,0],"advice":"The avalanche bulletin for the 2025/26 season is now closed. Whatever type of avalanche is present, we hope you enjoy the rest of the season, remembering that the most important aspect of avalanche safety is terrain selection.","problems":[],"summary":{"Avalanche":"","Snowpack":"","Weather":""}},"1":{"name":"Tateyama","date":"2025-12-01 13:00","url":"https://data.nadare.jp/avalanche_informations/7557?locale=en","levels":[0,0,0],"advice":"","problems":[],"summary":{"Avalanche":"","Snowpack":"","Weather":""}},"_fetched":"2026-10-23T11:03:40Z"}/*ENDAVALANCHE*/;
+const DANGER = [
+  {n:"Ingen nivå", c:"#9aa5b4", ink:"#14213a"},
+  {n:"Låg",        c:"#52b947", ink:"#0b2a07"},
+  {n:"Måttlig",    c:"#fff200", ink:"#2a2600"},
+  {n:"Betydande",  c:"#f7941e", ink:"#2b1500"},
+  {n:"Stor",       c:"#ed1c24", ink:"#ffffff"},
+  {n:"Mycket stor",c:"#231f20", ink:"#ffffff"},
+];
+const BANDS = ["Alpint (ovanför träden)", "Trädgränsen", "Under trädgränsen"];
+const PROBLEM_SV = {"wind slab":"Vindflak","storm slab":"Nysnöflak","persistent slab":"Ihållande svagt lager",
+  "deep persistent slab":"Djupt liggande svagt lager","dry loose snow":"Torr lössnö","dry loose":"Torr lössnö",
+  "wet loose snow":"Våt lössnö","wet loose":"Våt lössnö","wet slab":"Vått flak","glide slab":"Glidsnö",
+  "glide avalanche":"Glidsnö","cornice":"Snöhängdor"};
+const dangerBox = (lvl, big) => `<span class="dlvl${big?" big":""}" style="background:${DANGER[lvl].c};color:${DANGER[lvl].ink}">${lvl || "–"}</span>`;
+
 function avalOfficial(r){
   const v = AVAL[r.id];
-  if (!v) return `<p class="hint"><b>Ingen officiell lavinprognos</b> ges ut för det här området. Fråga ortens pistpatrull (ski patrol) om läget innan du åker utanför pisterna.</p>`;
-  const links = [`<a class="dirbtn" href="${JAN(v.a)}" target="_blank" rel="noopener">Officiell lavinprognos: ${esc(JAN_AREAS[v.a])} (JAN) ↗</a>`];
+  if (!v) return `<div class="dcard none">${dangerBox(0, true)}<div><b class="dhead-t">Ingen officiell lavinprognos</b>
+      <p>Det ges inte ut någon lavinprognos för det här området. Fråga ortens pistpatrull (ski patrol) om läget innan du åker utanför pisterna.</p></div></div>`;
+  const bul = AVALANCHE[v.a];
+  const links = [`<a class="dirbtn" href="${bul?.url || JAN(v.a)}" target="_blank" rel="noopener">Hela prognosen hos JAN ↗</a>`];
   if (v.extra) links.push(`<a class="dirbtn cam" href="${v.extra.url}" target="_blank" rel="noopener">${esc(v.extra.label)} ↗</a>`);
-  return `<div class="dlinks">${links.join("")}</div>
-    <p class="hint">${v.near ? `Prognosen täcker inte ${esc(r.name)} direkt, men är den närmaste som finns. ` : ""}Japan Avalanche Network bedömer faran på tre höjdnivåer (alpint, trädgräns, under trädgräns) och förklarar vilka lavinproblem som finns och varför. Den gäller terrängen utanför pisterna och ges ut ungefär december–mars, oftast tidigt på morgonen. Inne på pisterna sköter orten lavinsäkringen.</p>`;
+  const area = `${esc(JAN_AREAS[v.a])}${v.near ? ` <span class="near">närmaste prognosområde, täcker inte ${esc(r.name)} direkt</span>` : ""}`;
+
+  // Bulletins come out each morning; anything older than ~30 h is not today's.
+  const issued = bul ? new Date(bul.date.replace(" ", "T") + ":00+09:00") : null;
+  const fresh = issued && (Date.now() - issued) < 30 * 3600e3;
+  const levels = bul?.levels?.length === 3 ? bul.levels : [0, 0, 0];
+  const top = Math.max(...levels);
+  const when = issued ? issued.toLocaleString("sv-SE", {timeZone:"Asia/Tokyo", day:"numeric", month:"long", year: fresh ? undefined : "numeric", hour:"2-digit", minute:"2-digit"}) : "";
+
+  if (!fresh || !top){
+    return `<div class="dcard none">${dangerBox(0, true)}<div>
+        <b class="dhead-t">Ingen aktuell lavinprognos</b>
+        <p>${bul ? `Senaste prognosen för ${area} kom ${when}. ` : `Område: ${area}. `}JAN ger ut prognoser ungefär december–mars, varje morgon. När säsongen är igång visas dagens faronivå här med färg.</p>
+      </div></div><div class="dlinks">${links.join("")}</div>`;
+  }
+  const probs = (bul.problems || []).map(p => `
+      <details class="prob"><summary>${esc(PROBLEM_SV[p.name.toLowerCase()] || p.name)} <span class="en">${esc(p.name)}</span></summary>
+        <p lang="en">${esc(p.text || "")}</p></details>`).join("");
+  return `
+    <div class="dcard" style="--dc:${DANGER[top].c}">
+      ${dangerBox(top, true)}
+      <div>
+        <b class="dhead-t">${top} – ${DANGER[top].n} lavinfara</b>
+        <p>Högsta nivån idag i ${area}. Utfärdad ${when} av Japan Avalanche Network.</p>
+      </div>
+    </div>
+    <div class="bands">${levels.map((l, i) => `<div class="band">${dangerBox(l)}<span>${BANDS[i]}</span><b>${DANGER[l].n}</b></div>`).join("")}</div>
+    ${probs ? `<div class="probs"><span class="label">Lavinproblem idag</span>${probs}</div>` : ""}
+    ${bul.advice ? `<details class="prob"><summary>JAN:s råd för dagen <span class="en">på engelska</span></summary><p lang="en">${esc(bul.advice)}</p></details>` : ""}
+    <div class="dlinks">${links.join("")}</div>`;
 }
 const AVAL_SCALE = `<ol class="scale-list">
-  <li style="--c:#4caf50"><b>1 Låg</b> Snötäcket är i regel stabilt. Laviner främst i enstaka mycket branta partier.</li>
-  <li style="--c:#f5d000"><b>2 Måttlig</b> Förhöjd fara i vissa branta sluttningar. Välj terräng med omsorg.</li>
-  <li style="--c:#f39200"><b>3 Betydande</b> Laviner kan lösas ut av en enda skidåkare. Här sker flest olyckor. Kräver erfarenhet.</li>
-  <li style="--c:#e3001b"><b>4 Stor</b> Laviner lösas lätt ut i många branta sluttningar. Undvik lavinterräng.</li>
-  <li style="--c:#1a1a1a"><b>5 Mycket stor</b> Många stora laviner av sig själva. Håll dig borta från all lavinterräng.</li>
-</ol>`;
+  ${[1,2,3,4,5].map(l => `<li>${dangerBox(l)}<span><b>${DANGER[l].n}</b> ${[
+    "", "Snötäcket är i regel stabilt. Laviner främst i enstaka mycket branta partier.",
+    "Förhöjd fara i vissa branta sluttningar. Välj terräng med omsorg.",
+    "Laviner kan lösas ut av en enda skidåkare. Här sker flest olyckor. Kräver erfarenhet.",
+    "Laviner löses lätt ut i många branta sluttningar. Undvik lavinterräng.",
+    "Många stora laviner går av sig själva. Håll dig borta från all lavinterräng."][l]}</span></li>`).join("")}
+</ol>
+<p class="hint">Prognosen gäller terrängen utanför pisterna. Inne på pisterna sköter orten lavinsäkringen.</p>`;
 
 // Weather signals that raise avalanche danger, from the top-of-mountain model forecast.
 // Window: the last 72 hours and the next 48 hours.
@@ -637,14 +710,14 @@ function drawAvalSignals(top, mid, idx){
   let best = 0, bestEnd = idx;
   for (let i = a + 24; i <= b; i++){ const v = sumRange(H.snowfall, i - 24, i); if (v > best){ best = v; bestEnd = i - 1; } }
   const past72 = sumRange(H.snowfall, idx - 72, idx + 1), next48 = sumRange(H.snowfall, idx + 1, idx + 49);
-  sig.push({lvl: best >= 30 ? 2 : best >= 15 ? 1 : 0, t: "Nysnö",
+  sig.push({lvl: best >= 30 ? 2 : best >= 15 ? 1 : 0, t: "Nysnö", v: `max ${fmt(best)} cm/24 h`,
     why: best >= 15
       ? `Upp till ${fmt(best)} cm på 24 timmar runt ${when(bestEnd)}. Mycket nysnö på kort tid hinner inte binda till underlaget och ger flakrisk, särskilt de första 1–2 dygnen.`
       : `${fmt(past72)} cm senaste 3 dygnen och ${fmt(next48)} cm väntas de närmaste 2 dygnen vid toppen. Inga stora nysnömängder.`});
 
   // 2. Snowfall intensity
   const maxRate = Math.max(0, ...rng.map(i => H.snowfall[i] || 0));
-  if (maxRate >= 3) sig.push({lvl: maxRate >= 5 ? 2 : 1, t: "Intensivt snöfall",
+  if (maxRate >= 3) sig.push({lvl: maxRate >= 5 ? 2 : 1, t: "Intensivt snöfall", v: `${fmt(maxRate,1)} cm/h`,
     why: `Upp till ${fmt(maxRate,1)} cm i timmen. Snabb pålagring belastar snötäcket fortare än det hinner stabiliseras.`});
 
   // 3. Wind transport
@@ -654,14 +727,14 @@ function drawAvalSignals(top, mid, idx){
   const hasWindDir = x || y, from = hasWindDir ? (Math.atan2(x, y) * 180 / Math.PI + 360) % 360 : null;
   const snowToMove = past72 + next48 >= 5;
   const windLvl = !snowToMove ? 0 : gust >= 20 ? 2 : gust >= 12 ? 1 : 0;
-  sig.push({lvl: windLvl, t: "Vind och snödrev",
+  sig.push({lvl: windLvl, t: "Vind och snödrev", v: `byar ${fmt(gust)} m/s${hasWindDir ? " från " + compass(from) : ""}`,
     why: windLvl
       ? `Vindbyar upp till ${fmt(gust)} m/s vid toppen${hasWindDir ? `, mest från ${compass(from)}. Snön blåser då över till läsidor mot <b>${compass(from + 180)}</b>, där det bildas vindflak` : ". Vinden flyttar lös snö och bygger vindflak på läsidor"}. Vindflak är en av de vanligaste orsakerna till skidåkarutlösta laviner.`
       : snowToMove ? `Vindbyar upp till ${fmt(gust)} m/s. Måttlig vind, liten risk för nya vindflak.` : `Vindbyar upp till ${fmt(gust)} m/s, men lite lös nysnö att flytta.`});
 
   // 4. Rain on snow
   const rainTop = rng.reduce((s, i) => s + (H.rain?.[i] || 0), 0), rainMid = rng.reduce((s, i) => s + (M.rain?.[i] || 0), 0);
-  if (rainTop >= 1 || rainMid >= 1) sig.push({lvl: rainTop >= 1 ? 2 : 1, t: "Regn på snö",
+  if (rainTop >= 1 || rainMid >= 1) sig.push({lvl: rainTop >= 1 ? 2 : 1, t: "Regn på snö", v: `${fmt(rainTop >= 1 ? rainTop : rainMid, 1)} mm${rainTop >= 1 ? " vid toppen" : " på mellanhöjd"}`,
     why: rainTop >= 1 ? `Regn ända upp till toppen (${fmt(rainTop,1)} mm). Regn tynger och försvagar snötäcket snabbt och kan ge våta laviner och glidsnölaviner.`
                       : `Regn upp till mellanhöjd (${fmt(rainMid,1)} mm). Lägre ner blir snön tung och blöt, och risken för våta laviner ökar där.`});
 
@@ -670,7 +743,7 @@ function drawAvalSignals(top, mid, idx){
   const tMax = Math.max(...temps);
   let jump = 0; for (let k = 24; k < temps.length; k++) jump = Math.max(jump, temps[k] - Math.min(...temps.slice(k - 24, k)));
   const warmLvl = tMax > 2 ? 1 : jump >= 10 ? 1 : 0;
-  sig.push({lvl: warmLvl, t: "Temperatur",
+  sig.push({lvl: warmLvl, t: "Temperatur", v: `${fmt(Math.min(...temps))} till ${fmt(tMax)} °C`,
     why: warmLvl
       ? `${tMax > 2 ? `Upp till ${fmt(tMax)} °C vid toppen` : `Temperaturen stiger ${fmt(jump)} grader på ett dygn`}. Snabb uppvärmning och sol gör snön blöt och tung och kan lösa ut laviner, särskilt i sydsluttningar mitt på dagen.`
       : `Mellan ${fmt(Math.min(...temps))} och ${fmt(tMax)} °C vid toppen. Ingen kraftig uppvärmning.`});
@@ -681,11 +754,11 @@ function drawAvalSignals(top, mid, idx){
   const worst = Math.max(...sig.map(x => x.lvl));
   $("#avalsignals").innerHTML = `
     ${thin ? `<p class="hint caution">Vädermodellen räknar med bara ca ${fmt(depth*100)} cm snö vid toppen just nu. Med så tunt snötäcke är lavinrisken liten, och signalerna nedan visar mest hur vädret ser ut. De blir viktiga när snötäcket byggts upp.</p>` : ""}
-    <p class="hint"><b>Vädersignaler som påverkar lavinfaran</b> (senaste 3 dygnen och 2 dygn framåt, vid toppen):</p>
+    <p class="hint"><b>Vädersignaler som påverkar lavinfaran</b>, senaste 3 dygnen och 2 dygn framåt vid toppen. Tryck på en rad för att läsa mer.</p>
     <div class="sigs">${sig.sort((p,q) => q.lvl - p.lvl).map(x => `
-      <div class="sig"><span class="pill ${LV[x.lvl][1]}">${LV[x.lvl][0]}</span>
-        <div><b>${x.t}</b><p>${x.why}</p></div></div>`).join("")}</div>
-    <p class="hint caution">${worst >= 2 ? "<b>Vädret talar för förhöjd lavinfara.</b> " : ""}Det här är ingen lavinprognos. Appen ser bara vädret, inte snötäckets svaga lager, och vädermodellen kan ha fel i bergen. Läs den officiella prognosen och fråga pistpatrullen innan du åker utanför pisterna, och ha alltid lavinutrustning och kunskap att använda den.</p>`;
+      <details class="sig"><summary><span class="pill ${LV[x.lvl][1]}">${LV[x.lvl][0]}</span><b>${x.t}</b><span class="sv">${x.v}</span></summary>
+        <p>${x.why}</p></details>`).join("")}</div>
+    <p class="hint caution">${worst >= 2 && !thin ? "<b>Vädret talar för förhöjd lavinfara.</b> " : ""}Det här är ingen lavinprognos. Appen ser bara vädret, inte snötäckets svaga lager, och vädermodellen kan ha fel i bergen. Läs den officiella prognosen och fråga pistpatrullen innan du åker utanför pisterna, och ha alltid lavinutrustning och kunskap att använda den.</p>`;
 }
 
 async function loadForecast(r){
