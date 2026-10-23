@@ -136,6 +136,8 @@ footer{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:
 .gform input{flex:1 1 220px;min-width:0;font:inherit;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
 .gform button,.dirbtn{font:inherit;font-size:13px;padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;text-decoration:none;display:inline-block}
 .dirbtn{border-color:var(--snow);color:var(--snow);font-weight:600}
+.dlinks{display:flex;flex-wrap:wrap;gap:6px}
+.dirbtn.cam{border-color:var(--line);color:var(--ink);font-weight:500}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -210,6 +212,43 @@ const RESORTS = [
 ];
 RESORTS.forEach(r => r.mid = Math.round((r.base + r.top) / 2));
 const REGIONS = [...new Set(RESORTS.map(r => r.region))];
+
+// Webcam pages per resort. The resort's own page first where one was found, then OpenSnow,
+// which collects the resorts' cameras (often several heights, including the top).
+const OS = id => ({label: "Webbkameror (OpenSnow)", url: `https://opensnow.com/location/jp${id}/cams`});
+const HAKUBA_CAMS = {label: "Hakuba Valley, officiella kameror", url: "https://www.hakubavalley.com/en/livecam/"};
+const CAMS = {
+  hirafu:   [{label: "Niseko United, officiella kameror", url: "https://www.niseko.ne.jp/en/livecam/"}, OS("nisekograndhirafu")],
+  rusutsu:  [OS("rusutsu")],
+  kiroro:   [{label: "Kiroro, officiella kameror", url: "https://www.kiroro.co.jp/en/winter/livecam/"}, OS("kiroro")],
+  teine:    [OS("sapporoteine")],
+  kokusai:  [OS("sapporokokusai")],
+  furano:   [OS("furano")],
+  asahidake:[OS("asahidake")],
+  kamui:    [OS("kamui")],
+  sahoro:   [OS("sahoro")],
+  hakkoda:  [OS("hakkoda")],
+  appi:     [OS("appi")],
+  tazawako: [OS("tazawako")],
+  zao:      [OS("zaoonsen")],
+  bandai:   [OS("altsbandai")],
+  arai:     [OS("lottearai")],
+  akakura:  [OS("akakuraonsen"), OS("akakurakanko")],
+  madarao:  [OS("madaraokogen")],
+  nozawa:   [OS("nozawaonsen")],
+  shiga:    [{label: "Shiga Kogen, kameror inkl. toppstationen 2 307 m", url: "https://shigakogen.info/shiga-kogen-webcams/"}],
+  happo:    [{label: "Happo-one, officiella kameror", url: "https://www.happo-one.jp/livecam/"}, HAKUBA_CAMS, OS("hakubahappoone")],
+  goryu:    [HAKUBA_CAMS, OS("hakuba47"), OS("hakubagoryu")],
+  iwatake:  [HAKUBA_CAMS, OS("hakubaiwatake")],
+  tsugaike: [HAKUBA_CAMS, OS("tsugaike")],
+  cortina:  [HAKUBA_CAMS, OS("hakubacortina")],
+  naeba:    [OS("naeba")],
+  kagura:   [OS("kagura")],
+  gala:     [OS("galayuzawa")],
+  tanigawa: [OS("tanigawadake")],
+  dynaland: [OS("dynaland")],
+  daisen:   [OS("daisenwhiteresort")],
+};
 
 // ---------- Helpers ----------
 const $ = s => document.querySelector(s);
@@ -461,7 +500,11 @@ async function renderDetail(id){
       <div class="dhead">
         <span class="label">${esc(r.region)} · dal ${r.base} m · topp ${r.top} m</span>
         <h2>${esc(r.name)}<span class="jp">${esc(r.jp)}</span></h2>
-        <div><a class="dirbtn" href="${gmapsDir(r.lat, r.lon)}" target="_blank" rel="noopener">Vägbeskrivning till backen ↗</a></div>
+        <div class="dlinks">
+          <a class="dirbtn" href="${gmapsDir(r.lat, r.lon)}" target="_blank" rel="noopener">Vägbeskrivning till backen ↗</a>
+          ${(CAMS[r.id] || []).map(c => `<a class="dirbtn cam" href="${esc(c.url)}" target="_blank" rel="noopener">📷 ${esc(c.label)} ↗</a>`).join("")}
+        </div>
+        ${CAMS[r.id] ? "" : `<span class="label" style="text-transform:none;letter-spacing:0">Ingen webbkamera hittad för den här orten.</span>`}
       </div>
       <div class="stats" id="stats"><div class="msg">Hämtar detaljerad prognos…</div></div>
       <div class="panel">
