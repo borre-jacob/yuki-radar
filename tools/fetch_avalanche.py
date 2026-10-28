@@ -62,6 +62,32 @@ def latest(area):
             "levels": levels, "advice": advice, "problems": problems, "summary": summary}
 
 
+SE_BASE = "https://www.lavinprognoser.se/oversikt-alla-omraden/"
+SE_AREAS = ["abisko_riksgransfjallen", "kebnekaisefjallen", "sodra_jamtlandsfjallen",
+            "sodra_lapplandsfjallen", "vastra_harjedalsfjallen", "vastra_vindelfjallen"]
+
+
+def se_time(text):
+    """'torsdag 22-10-2026 08:00' (Swedish local time) -> ISO string with offset."""
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    m = re.search(r"(\d{2})-(\d{2})-(\d{4}) (\d{2}):(\d{2})", text or "")
+    if not m:
+        return None
+    d, mo, y, h, mi = map(int, m.groups())
+    return datetime(y, mo, d, h, mi, tzinfo=ZoneInfo("Europe/Stockholm")).isoformat()
+
+
+def sweden(slug):
+    """Latest Naturvårdsverket forecast: level 0-5, published/valid times and the main message."""
+    L = lines(get(SE_BASE + slug + "/"))
+    after = lambda key: L[L.index(key) + 1] if key in L and L.index(key) + 1 < len(L) else ""
+    level = next((int(l[9:-1]) for l in L if re.fullmatch(r"\[IMG:Risk \d\]", l)), 0)
+    msg = section(L, "Hoppa över karta", {"Se tidigare prognoser", "calendar", "Så här läser du lavinprognosen"})
+    return {"level": level, "label": after("Lavinfara"), "published": se_time(after("Publicerad:")),
+            "validTo": se_time(after("Gäller till:")), "message": " ".join(msg)[:800], "url": SE_BASE + slug + "/"}
+
+
 def main(out):
     result = {}
     for a in AREAS:
@@ -72,6 +98,13 @@ def main(out):
                 print(a, b["name"], b["date"], b["levels"], len(b["problems"]), "problems", file=sys.stderr)
         except Exception as e:  # keep the other areas if one fails
             print(a, "failed:", e, file=sys.stderr)
+        time.sleep(1)
+    for slug in SE_AREAS:
+        try:
+            result["se_" + slug] = b = sweden(slug)
+            print(slug, b["level"], b["label"], b["published"], file=sys.stderr)
+        except Exception as e:
+            print(slug, "failed:", e, file=sys.stderr)
         time.sleep(1)
     result["_fetched"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     json.dump(result, open(out, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))

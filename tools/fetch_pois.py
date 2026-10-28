@@ -15,8 +15,15 @@ def dist(a, b, c, d):
 
 def classify(t):
     name = t.get("name", "")
+    if t.get("leisure") == "sauna":
+        return "onsen", "Bastu"
+    if t.get("leisure") == "water_park":
+        return "onsen", "Äventyrsbad"
     if t.get("amenity") == "public_bath" or t.get("bath:type") == "onsen":
-        sub = "Gratis bad" if t.get("fee") == "no" else ("Onsen" if t.get("bath:type") == "onsen" or re.search("温泉|湯", name) else "Badhus / sento")
+        japanese = re.search(r"[\u3040-\u30ff\u4e00-\u9fff]", name)
+        if t.get("fee") == "no": sub = "Gratis bad"
+        elif t.get("bath:type") == "onsen" or re.search("温泉|湯", name): sub = "Onsen"
+        else: sub = "Badhus / sento" if japanese else "Badhus"
         return "onsen", sub
     if t.get("amenity") == "toilets":
         return "toilet", "Toalett · dygnet runt" if t.get("opening_hours") == "24/7" else "Toalett"
@@ -38,7 +45,7 @@ for rid, lat, lon in resorts:
     lat, lon = float(lat), float(lon)
     bb = f"{lat-0.3:.3f},{lon-0.4:.3f},{lat+0.3:.3f},{lon+0.4:.3f}"
     q = f'''[out:json][timeout:90][bbox:{bb}];(
-nwr["amenity"="public_bath"];nwr["bath:type"="onsen"];
+nwr["amenity"="public_bath"];nwr["bath:type"="onsen"];nwr["leisure"="sauna"]["access"!="private"];nwr["leisure"="water_park"];
 nwr["highway"~"^(rest_area|services)$"];nwr["tourism"~"^(caravan_site|camp_site)$"];
 nwr["name"~"道の駅|RVパーク"];
 nwr["amenity"="toilets"](around:12000,{lat},{lon});

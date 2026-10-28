@@ -1,0 +1,268 @@
+[
+ {
+  "id": "are",
+  "name": "Åre",
+  "region": "Sverige",
+  "lat": 63.4,
+  "lon": 13.08
+ },
+ {
+  "id": "vemdalsskalet",
+  "name": "Vemdalsskalet",
+  "region": "Sverige",
+  "lat": 62.48,
+  "lon": 13.97
+ },
+ {
+  "id": "bjornrike",
+  "name": "Björnrike",
+  "region": "Sverige",
+  "lat": 62.4,
+  "lon": 13.95
+ },
+ {
+  "id": "ramundberget",
+  "name": "Ramundberget",
+  "region": "Sverige",
+  "lat": 62.7,
+  "lon": 12.39
+ },
+ {
+  "id": "tanndalen",
+  "name": "Tänndalen",
+  "region": "Sverige",
+  "lat": 62.53,
+  "lon": 12.3
+ },
+ {
+  "id": "storlien",
+  "name": "Storlien",
+  "region": "Sverige",
+  "lat": 63.31,
+  "lon": 12.13
+ },
+ {
+  "id": "idre",
+  "name": "Idre Fjäll",
+  "region": "Sverige",
+  "lat": 61.88,
+  "lon": 12.83
+ },
+ {
+  "id": "lindvallen",
+  "name": "Sälen Lindvallen",
+  "region": "Sverige",
+  "lat": 61.16,
+  "lon": 13.18
+ },
+ {
+  "id": "tandadalen",
+  "name": "Sälen Tandådalen",
+  "region": "Sverige",
+  "lat": 61.17,
+  "lon": 13.0
+ },
+ {
+  "id": "stoten",
+  "name": "Stöten",
+  "region": "Sverige",
+  "lat": 61.27,
+  "lon": 12.89
+ },
+ {
+  "id": "klappen",
+  "name": "Kläppen",
+  "region": "Sverige",
+  "lat": 61.03,
+  "lon": 13.35
+ },
+ {
+  "id": "branas",
+  "name": "Branäs",
+  "region": "Sverige",
+  "lat": 60.66,
+  "lon": 13.0
+ },
+ {
+  "id": "riksgransen",
+  "name": "Riksgränsen",
+  "region": "Sverige",
+  "lat": 68.43,
+  "lon": 18.12
+ },
+ {
+  "id": "bjorkliden",
+  "name": "Björkliden",
+  "region": "Sverige",
+  "lat": 68.4,
+  "lon": 18.68
+ },
+ {
+  "id": "hemavan",
+  "name": "Hemavan",
+  "region": "Sverige",
+  "lat": 65.81,
+  "lon": 15.09
+ },
+ {
+  "id": "tarnaby",
+  "name": "Tärnaby",
+  "region": "Sverige",
+  "lat": 65.71,
+  "lon": 15.27
+ },
+ {
+  "id": "kittelfjall",
+  "name": "Kittelfjäll",
+  "region": "Sverige",
+  "lat": 65.25,
+  "lon": 15.52
+ },
+ {
+  "id": "hemsedal",
+  "name": "Hemsedal",
+  "region": "Norge",
+  "lat": 60.851,
+  "lon": 8.511
+ },
+ {
+  "id": "trysil",
+  "name": "Trysil",
+  "region": "Norge",
+  "lat": 61.31,
+  "lon": 12.2
+ },
+ {
+  "id": "geilo",
+  "name": "Geilo",
+  "region": "Norge",
+  "lat": 60.53,
+  "lon": 8.21
+ },
+ {
+  "id": "hafjell",
+  "name": "Hafjell",
+  "region": "Norge",
+  "lat": 61.23,
+  "lon": 10.43
+ },
+ {
+  "id": "kvitfjell",
+  "name": "Kvitfjell",
+  "region": "Norge",
+  "lat": 61.47,
+  "lon": 10.13
+ },
+ {
+  "id": "oppdal",
+  "name": "Oppdal",
+  "region": "Norge",
+  "lat": 62.59,
+  "lon": 9.65
+ },
+ {
+  "id": "narvik",
+  "name": "Narvikfjellet",
+  "region": "Norge",
+  "lat": 68.43,
+  "lon": 17.41
+ },
+ {
+  "id": "voss",
+  "name": "Voss Resort",
+  "region": "Norge",
+  "lat": 60.65,
+  "lon": 6.44
+ },
+ {
+  "id": "myrkdalen",
+  "name": "Myrkdalen",
+  "region": "Norge",
+  "lat": 60.87,
+  "lon": 6.5
+ },
+ {
+  "id": "beitostolen",
+  "name": "Beitostølen",
+  "region": "Norge",
+  "lat": 61.25,
+  "lon": 8.91
+ },
+ {
+  "id": "norefjell",
+  "name": "Norefjell",
+  "region": "Norge",
+  "lat": 60.18,
+  "lon": 9.55
+ },
+ {
+  "id": "stranda",
+  "name": "Strandafjellet",
+  "region": "Norge",
+  "lat": 62.293,
+  "lon": 6.84
+ },
+ {
+  "id": "levi",
+  "name": "Levi",
+  "region": "Finland",
+  "lat": 67.8,
+  "lon": 24.81
+ },
+ {
+  "id": "yllas",
+  "name": "Ylläs",
+  "region": "Finland",
+  "lat": 67.57,
+  "lon": 24.21
+ },
+ {
+  "id": "ruka",
+  "name": "Ruka",
+  "region": "Finland",
+  "lat": 66.17,
+  "lon": 29.14
+ },
+ {
+  "id": "pyha",
+  "name": "Pyhä",
+  "region": "Finland",
+  "lat": 67.01,
+  "lon": 27.22
+ },
+ {
+  "id": "luosto",
+  "name": "Luosto",
+  "region": "Finland",
+  "lat": 67.15,
+  "lon": 26.91
+ },
+ {
+  "id": "isosyote",
+  "name": "Iso-Syöte",
+  "region": "Finland",
+  "lat": 65.62,
+  "lon": 27.58
+ },
+ {
+  "id": "saariselka",
+  "name": "Saariselkä",
+  "region": "Finland",
+  "lat": 68.42,
+  "lon": 27.43
+ },
+ {
+  "id": "tahko",
+  "name": "Tahko",
+  "region": "Finland",
+  "lat": 63.292,
+  "lon": 28.019
+ },
+ {
+  "id": "himos",
+  "name": "Himos",
+  "region": "Finland",
+  "lat": 61.879,
+  "lon": 25.306
+ }
+]

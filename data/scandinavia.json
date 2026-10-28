@@ -1,0 +1,382 @@
+[
+ {
+  "id": "are",
+  "name": "Åre",
+  "region": "Sverige",
+  "lat": 63.409,
+  "lon": 13.091,
+  "liftCount": 33,
+  "base": 400,
+  "top": 1340
+ },
+ {
+  "id": "vemdalsskalet",
+  "name": "Vemdalsskalet",
+  "region": "Sverige",
+  "lat": 62.484,
+  "lon": 13.96,
+  "liftCount": 12,
+  "base": 590,
+  "top": 930
+ },
+ {
+  "id": "bjornrike",
+  "name": "Björnrike",
+  "region": "Sverige",
+  "lat": 62.419,
+  "lon": 13.959,
+  "liftCount": 12,
+  "base": 480,
+  "top": 940
+ },
+ {
+  "id": "ramundberget",
+  "name": "Ramundberget",
+  "region": "Sverige",
+  "lat": 62.699,
+  "lon": 12.382,
+  "liftCount": 9,
+  "base": 700,
+  "top": 950
+ },
+ {
+  "id": "tanndalen",
+  "name": "Tänndalen",
+  "region": "Sverige",
+  "lat": 62.557,
+  "lon": 12.249,
+  "liftCount": 9,
+  "base": 750,
+  "top": 1020
+ },
+ {
+  "id": "storlien",
+  "name": "Storlien",
+  "region": "Sverige",
+  "lat": 63.323,
+  "lon": 12.091,
+  "liftCount": 9,
+  "base": 590,
+  "top": 780
+ },
+ {
+  "id": "idre",
+  "name": "Idre Fjäll",
+  "region": "Sverige",
+  "lat": 61.891,
+  "lon": 12.819,
+  "liftCount": 30,
+  "base": 590,
+  "top": 890
+ },
+ {
+  "id": "lindvallen",
+  "name": "Sälen Lindvallen",
+  "region": "Sverige",
+  "lat": 61.156,
+  "lon": 13.172,
+  "liftCount": 48,
+  "base": 570,
+  "top": 880
+ },
+ {
+  "id": "tandadalen",
+  "name": "Sälen Tandådalen",
+  "region": "Sverige",
+  "lat": 61.175,
+  "lon": 12.994,
+  "liftCount": 41,
+  "base": 580,
+  "top": 860
+ },
+ {
+  "id": "stoten",
+  "name": "Stöten",
+  "region": "Sverige",
+  "lat": 61.265,
+  "lon": 12.888,
+  "liftCount": 24,
+  "base": 440,
+  "top": 830
+ },
+ {
+  "id": "klappen",
+  "name": "Kläppen",
+  "region": "Sverige",
+  "lat": 61.033,
+  "lon": 13.355,
+  "liftCount": 21,
+  "base": 360,
+  "top": 640
+ },
+ {
+  "id": "branas",
+  "name": "Branäs",
+  "region": "Sverige",
+  "lat": 60.652,
+  "lon": 12.948,
+  "liftCount": 29,
+  "base": 150,
+  "top": 550
+ },
+ {
+  "id": "riksgransen",
+  "name": "Riksgränsen",
+  "region": "Sverige",
+  "lat": 68.417,
+  "lon": 18.121,
+  "liftCount": 6,
+  "base": 510,
+  "top": 900
+ },
+ {
+  "id": "bjorkliden",
+  "name": "Björkliden",
+  "region": "Sverige",
+  "lat": 68.393,
+  "lon": 18.68,
+  "liftCount": 6,
+  "base": 400,
+  "top": 940
+ },
+ {
+  "id": "hemavan",
+  "name": "Hemavan",
+  "region": "Sverige",
+  "lat": 65.826,
+  "lon": 15.098,
+  "liftCount": 9,
+  "base": 460,
+  "top": 1120
+ },
+ {
+  "id": "tarnaby",
+  "name": "Tärnaby",
+  "region": "Sverige",
+  "lat": 65.717,
+  "lon": 15.271,
+  "liftCount": 4,
+  "base": 460,
+  "top": 810
+ },
+ {
+  "id": "kittelfjall",
+  "name": "Kittelfjäll",
+  "region": "Sverige",
+  "lat": 65.253,
+  "lon": 15.487,
+  "liftCount": 5,
+  "base": 540,
+  "top": 980
+ },
+ {
+  "id": "hemsedal",
+  "name": "Hemsedal",
+  "region": "Norge",
+  "lat": 60.854,
+  "lon": 8.509,
+  "liftCount": 17,
+  "base": 640,
+  "top": 1450
+ },
+ {
+  "id": "trysil",
+  "name": "Trysil",
+  "region": "Norge",
+  "lat": 61.315,
+  "lon": 12.197,
+  "liftCount": 32,
+  "base": 410,
+  "top": 1100
+ },
+ {
+  "id": "geilo",
+  "name": "Geilo",
+  "region": "Norge",
+  "lat": 60.529,
+  "lon": 8.202,
+  "liftCount": 16,
+  "base": 780,
+  "top": 1160
+ },
+ {
+  "id": "hafjell",
+  "name": "Hafjell",
+  "region": "Norge",
+  "lat": 61.236,
+  "lon": 10.488,
+  "liftCount": 15,
+  "base": 190,
+  "top": 1050
+ },
+ {
+  "id": "kvitfjell",
+  "name": "Kvitfjell",
+  "region": "Norge",
+  "lat": 61.46,
+  "lon": 10.124,
+  "liftCount": 11,
+  "base": 190,
+  "top": 1030
+ },
+ {
+  "id": "oppdal",
+  "name": "Oppdal",
+  "region": "Norge",
+  "lat": 62.617,
+  "lon": 9.678,
+  "liftCount": 13,
+  "base": 600,
+  "top": 1350
+ },
+ {
+  "id": "narvik",
+  "name": "Narvikfjellet",
+  "region": "Norge",
+  "lat": 68.422,
+  "lon": 17.439,
+  "liftCount": 7,
+  "base": 70,
+  "top": 990
+ },
+ {
+  "id": "voss",
+  "name": "Voss Resort",
+  "region": "Norge",
+  "lat": 60.653,
+  "lon": 6.398,
+  "liftCount": 9,
+  "base": 80,
+  "top": 950
+ },
+ {
+  "id": "myrkdalen",
+  "name": "Myrkdalen",
+  "region": "Norge",
+  "lat": 60.861,
+  "lon": 6.477,
+  "liftCount": 8,
+  "base": 450,
+  "top": 1090
+ },
+ {
+  "id": "beitostolen",
+  "name": "Beitostølen",
+  "region": "Norge",
+  "lat": 61.25,
+  "lon": 8.908,
+  "liftCount": 7,
+  "base": 830,
+  "top": 1090
+ },
+ {
+  "id": "norefjell",
+  "name": "Norefjell",
+  "region": "Norge",
+  "lat": 60.22,
+  "lon": 9.576,
+  "liftCount": 7,
+  "base": 190,
+  "top": 900
+ },
+ {
+  "id": "stranda",
+  "name": "Strandafjellet",
+  "region": "Norge",
+  "lat": 62.292,
+  "lon": 6.836,
+  "liftCount": 6,
+  "base": 440,
+  "top": 1150
+ },
+ {
+  "id": "levi",
+  "name": "Levi",
+  "region": "Finland",
+  "lat": 67.788,
+  "lon": 24.847,
+  "liftCount": 23,
+  "base": 200,
+  "top": 520
+ },
+ {
+  "id": "yllas",
+  "name": "Ylläs",
+  "region": "Finland",
+  "lat": 67.57,
+  "lon": 24.22,
+  "liftCount": 24,
+  "base": 280,
+  "top": 720
+ },
+ {
+  "id": "ruka",
+  "name": "Ruka",
+  "region": "Finland",
+  "lat": 66.167,
+  "lon": 29.157,
+  "liftCount": 18,
+  "base": 300,
+  "top": 490
+ },
+ {
+  "id": "pyha",
+  "name": "Pyhä",
+  "region": "Finland",
+  "lat": 67.024,
+  "lon": 27.235,
+  "liftCount": 8,
+  "base": 200,
+  "top": 470
+ },
+ {
+  "id": "luosto",
+  "name": "Luosto",
+  "region": "Finland",
+  "lat": 67.15,
+  "lon": 26.9,
+  "liftCount": 3,
+  "base": 260,
+  "top": 490
+ },
+ {
+  "id": "isosyote",
+  "name": "Iso-Syöte",
+  "region": "Finland",
+  "lat": 65.626,
+  "lon": 27.631,
+  "liftCount": 9,
+  "base": 240,
+  "top": 420
+ },
+ {
+  "id": "saariselka",
+  "name": "Saariselkä",
+  "region": "Finland",
+  "lat": 68.427,
+  "lon": 27.456,
+  "liftCount": 5,
+  "base": 270,
+  "top": 440
+ },
+ {
+  "id": "tahko",
+  "name": "Tahko",
+  "region": "Finland",
+  "lat": 63.291,
+  "lon": 28.019,
+  "liftCount": 14,
+  "base": 100,
+  "top": 290
+ },
+ {
+  "id": "himos",
+  "name": "Himos",
+  "region": "Finland",
+  "lat": 61.882,
+  "lon": 25.311,
+  "liftCount": 15,
+  "base": 80,
+  "top": 220
+ }
+]
