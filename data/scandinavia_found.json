@@ -1,0 +1,962 @@
+[
+ {
+  "name": "Sogn skisenter",
+  "lat": 61.34,
+  "lon": 7.205,
+  "base": 330,
+  "top": 980,
+  "liftCount": 4
+ },
+ {
+  "name": "Stryn Vinterski",
+  "lat": 61.93,
+  "lon": 6.699,
+  "base": 330,
+  "top": 960,
+  "liftCount": 3
+ },
+ {
+  "name": "Røldal Skisenter",
+  "lat": 59.827,
+  "lon": 6.731,
+  "base": 700,
+  "top": 1270,
+  "liftCount": 6
+ },
+ {
+  "name": "Harpefossen skisenter",
+  "lat": 61.963,
+  "lon": 5.934,
+  "base": 260,
+  "top": 810,
+  "liftCount": 6
+ },
+ {
+  "name": "Uvdal alpinsenter (Senteret)",
+  "lat": 60.295,
+  "lon": 8.532,
+  "base": 650,
+  "top": 1200,
+  "liftCount": 6
+ },
+ {
+  "name": "Gausta skisenter",
+  "lat": 59.878,
+  "lon": 8.727,
+  "base": 700,
+  "top": 1240,
+  "liftCount": 12
+ },
+ {
+  "name": "Tusten Skiheiser",
+  "lat": 62.769,
+  "lon": 7.262,
+  "base": 130,
+  "top": 670,
+  "liftCount": 4
+ },
+ {
+  "name": "Ørsta skisenter",
+  "lat": 62.158,
+  "lon": 6.287,
+  "base": 330,
+  "top": 860,
+  "liftCount": 4
+ },
+ {
+  "name": "Jølster Skisenter",
+  "lat": 61.476,
+  "lon": 6.09,
+  "base": 230,
+  "top": 750,
+  "liftCount": 4
+ },
+ {
+  "name": "Sunnmørsalpane Skiarena Fjellseter",
+  "lat": 62.34,
+  "lon": 6.757,
+  "base": 370,
+  "top": 880,
+  "liftCount": 5
+ },
+ {
+  "name": "Hallingskarvet skisenter",
+  "lat": 60.641,
+  "lon": 8.018,
+  "base": 740,
+  "top": 1230,
+  "liftCount": 3
+ },
+ {
+  "name": "Grong skisenter",
+  "lat": 64.396,
+  "lon": 12.309,
+  "base": 230,
+  "top": 710,
+  "liftCount": 4
+ },
+ {
+  "name": "Ål skisenter",
+  "lat": 60.666,
+  "lon": 8.526,
+  "base": 560,
+  "top": 1030,
+  "liftCount": 5
+ },
+ {
+  "name": "Lofsdalen",
+  "lat": 62.119,
+  "lon": 13.308,
+  "base": 630,
+  "top": 1090,
+  "liftCount": 9
+ },
+ {
+  "name": "Sauda skisenter",
+  "lat": 59.618,
+  "lon": 6.237,
+  "base": 350,
+  "top": 810,
+  "liftCount": 5
+ },
+ {
+  "name": "Tromsø Alpinpark",
+  "lat": 69.672,
+  "lon": 19.067,
+  "base": 40,
+  "top": 500,
+  "liftCount": 3
+ },
+ {
+  "name": "Eikedalen skisenter",
+  "lat": 60.41,
+  "lon": 5.912,
+  "base": 460,
+  "top": 910,
+  "liftCount": 9
+ },
+ {
+  "name": "Vassfjellet skisenter",
+  "lat": 63.266,
+  "lon": 10.387,
+  "base": 200,
+  "top": 650,
+  "liftCount": 7
+ },
+ {
+  "name": "Vrådal Panorama",
+  "lat": 59.302,
+  "lon": 8.432,
+  "base": 270,
+  "top": 720,
+  "liftCount": 5
+ },
+ {
+  "name": "Meråker alpinsenter",
+  "lat": 63.455,
+  "lon": 11.691,
+  "base": 180,
+  "top": 620,
+  "liftCount": 6
+ },
+ {
+  "name": "Sogndal skisenter",
+  "lat": 61.293,
+  "lon": 6.972,
+  "base": 500,
+  "top": 940,
+  "liftCount": 5
+ },
+ {
+  "name": "Blåsjöns Fjällanläggning",
+  "lat": 64.846,
+  "lon": 14.111,
+  "base": 480,
+  "top": 920,
+  "liftCount": 3
+ },
+ {
+  "name": "Bydalsfjällen",
+  "lat": 63.102,
+  "lon": 13.779,
+  "base": 580,
+  "top": 1010,
+  "liftCount": 12
+ },
+ {
+  "name": "Skagahøgdi skisenter",
+  "lat": 60.709,
+  "lon": 8.891,
+  "base": 440,
+  "top": 870,
+  "liftCount": 2
+ },
+ {
+  "name": "Hovden Alpinsenter",
+  "lat": 59.573,
+  "lon": 7.335,
+  "base": 760,
+  "top": 1180,
+  "liftCount": 8
+ },
+ {
+  "name": "Tyin-Filefjell",
+  "lat": 61.189,
+  "lon": 8.231,
+  "base": 830,
+  "top": 1240,
+  "liftCount": 4
+ },
+ {
+  "name": "Stordal alpinsenter",
+  "lat": 62.409,
+  "lon": 7.205,
+  "base": 400,
+  "top": 810,
+  "liftCount": 3
+ },
+ {
+  "name": "Skimore Oslo",
+  "lat": 59.991,
+  "lon": 10.659,
+  "base": 150,
+  "top": 530,
+  "liftCount": 8
+ },
+ {
+  "name": "Ørskogfjell skisenter",
+  "lat": 62.538,
+  "lon": 6.975,
+  "base": 310,
+  "top": 690,
+  "liftCount": 2
+ },
+ {
+  "name": "Raulandsfjell alpinsenter",
+  "lat": 59.723,
+  "lon": 7.998,
+  "base": 710,
+  "top": 1080,
+  "liftCount": 3
+ },
+ {
+  "name": "Lifjell Skisenter",
+  "lat": 59.476,
+  "lon": 9.029,
+  "base": 440,
+  "top": 800,
+  "liftCount": 3
+ },
+ {
+  "name": "Hornindal skisenter",
+  "lat": 62.011,
+  "lon": 6.547,
+  "base": 400,
+  "top": 760,
+  "liftCount": 1
+ },
+ {
+  "name": "Nesfjellet Alpinsenter",
+  "lat": 60.537,
+  "lon": 9.037,
+  "base": 730,
+  "top": 1080,
+  "liftCount": 8
+ },
+ {
+  "name": "Nerskogen skisenter",
+  "lat": 62.768,
+  "lon": 9.621,
+  "base": 710,
+  "top": 1060,
+  "liftCount": 2
+ },
+ {
+  "name": "Galdhøpiggen Sommerskisenter",
+  "lat": 61.663,
+  "lon": 8.349,
+  "base": 1840,
+  "top": 2190,
+  "liftCount": 1
+ },
+ {
+  "name": "Klövsjö / Storhogna",
+  "lat": 62.499,
+  "lon": 14.146,
+  "base": 460,
+  "top": 800,
+  "liftCount": 14
+ },
+ {
+  "name": "Ålen skisenter",
+  "lat": 62.833,
+  "lon": 11.297,
+  "base": 390,
+  "top": 730,
+  "liftCount": 2
+ },
+ {
+  "name": "Modum skisenter",
+  "lat": 59.967,
+  "lon": 10.029,
+  "base": 110,
+  "top": 450,
+  "liftCount": 1
+ },
+ {
+  "name": "Surnadal alpinsenter",
+  "lat": 62.961,
+  "lon": 8.665,
+  "base": 110,
+  "top": 450,
+  "liftCount": 1
+ },
+ {
+  "name": "Trillevallen",
+  "lat": 63.266,
+  "lon": 13.156,
+  "base": 670,
+  "top": 1000,
+  "liftCount": 7
+ },
+ {
+  "name": "Hannibalbakken",
+  "lat": 59.659,
+  "lon": 9.605,
+  "base": 240,
+  "top": 570,
+  "liftCount": 7
+ },
+ {
+  "name": "Valdres Alpinsenter",
+  "lat": 60.937,
+  "lon": 9.432,
+  "base": 700,
+  "top": 1030,
+  "liftCount": 4
+ },
+ {
+  "name": "Fidjeland Skitrekk",
+  "lat": 58.962,
+  "lon": 6.952,
+  "base": 640,
+  "top": 970,
+  "liftCount": 3
+ },
+ {
+  "name": "Volda skisenter",
+  "lat": 62.157,
+  "lon": 6.15,
+  "base": 320,
+  "top": 650,
+  "liftCount": 3
+ },
+ {
+  "name": "Ånstadblåheia skitrekk",
+  "lat": 68.713,
+  "lon": 15.318,
+  "base": 170,
+  "top": 500,
+  "liftCount": 1
+ },
+ {
+  "name": "Alpinsenteret i Raudalen",
+  "lat": 61.222,
+  "lon": 8.819,
+  "base": 720,
+  "top": 1050,
+  "liftCount": 1
+ },
+ {
+  "name": "Skeikampen Alpinsenter",
+  "lat": 61.348,
+  "lon": 10.079,
+  "base": 790,
+  "top": 1110,
+  "liftCount": 9
+ },
+ {
+  "name": "Sirdal Skisenter",
+  "lat": 58.918,
+  "lon": 6.845,
+  "base": 590,
+  "top": 910,
+  "liftCount": 9
+ },
+ {
+  "name": "Pallas Ski Resort",
+  "lat": 68.056,
+  "lon": 24.046,
+  "base": 440,
+  "top": 760,
+  "liftCount": 2
+ },
+ {
+  "name": "Sunndal alpinsenter",
+  "lat": 62.779,
+  "lon": 8.554,
+  "base": 200,
+  "top": 520,
+  "liftCount": 1
+ },
+ {
+  "name": "Gålå Alpinsenter",
+  "lat": 61.501,
+  "lon": 9.774,
+  "base": 780,
+  "top": 1090,
+  "liftCount": 6
+ },
+ {
+  "name": "Vestvatnlia alpinanlegg",
+  "lat": 67.075,
+  "lon": 14.959,
+  "base": 180,
+  "top": 490,
+  "liftCount": 1
+ },
+ {
+  "name": "Rauma skisenter",
+  "lat": 62.597,
+  "lon": 7.658,
+  "base": 310,
+  "top": 610,
+  "liftCount": 1
+ },
+ {
+  "name": "Sollifjellet alpinsenter",
+  "lat": 68.804,
+  "lon": 16.389,
+  "base": 230,
+  "top": 530,
+  "liftCount": 1
+ },
+ {
+  "name": "Rauland skisenter",
+  "lat": 59.728,
+  "lon": 8.148,
+  "base": 830,
+  "top": 1110,
+  "liftCount": 13
+ },
+ {
+  "name": "Borgafjällbackarna",
+  "lat": 64.836,
+  "lon": 15.055,
+  "base": 510,
+  "top": 790,
+  "liftCount": 3
+ },
+ {
+  "name": "Almåsa",
+  "lat": 63.506,
+  "lon": 14.049,
+  "base": 420,
+  "top": 700,
+  "liftCount": 2
+ },
+ {
+  "name": "Hallbjønnsekken skisenter",
+  "lat": 59.36,
+  "lon": 7.738,
+  "base": 790,
+  "top": 1060,
+  "liftCount": 2
+ },
+ {
+  "name": "Stavadalen skisenter",
+  "lat": 60.841,
+  "lon": 9.4,
+  "base": 750,
+  "top": 1020,
+  "liftCount": 2
+ },
+ {
+  "name": "Romme Alpin",
+  "lat": 60.388,
+  "lon": 15.395,
+  "base": 140,
+  "top": 400,
+  "liftCount": 14
+ },
+ {
+  "name": "Hurdal Skisenter",
+  "lat": 60.463,
+  "lon": 11.069,
+  "base": 260,
+  "top": 520,
+  "liftCount": 4
+ },
+ {
+  "name": "Hallsta Ski",
+  "lat": 63.16,
+  "lon": 17.242,
+  "base": 70,
+  "top": 320,
+  "liftCount": 5
+ },
+ {
+  "name": "Ådneram Skitrekk",
+  "lat": 59.022,
+  "lon": 6.916,
+  "base": 580,
+  "top": 830,
+  "liftCount": 4
+ },
+ {
+  "name": "Huså",
+  "lat": 63.484,
+  "lon": 13.118,
+  "base": 420,
+  "top": 670,
+  "liftCount": 1
+ },
+ {
+  "name": "Skulebacken",
+  "lat": 63.074,
+  "lon": 18.341,
+  "base": 40,
+  "top": 290,
+  "liftCount": 1
+ },
+ {
+  "name": "Suomutunturi",
+  "lat": 66.554,
+  "lon": 28.018,
+  "base": 170,
+  "top": 410,
+  "liftCount": 4
+ },
+ {
+  "name": "Munklia hoppsenter",
+  "lat": 66.336,
+  "lon": 14.088,
+  "base": 70,
+  "top": 310,
+  "liftCount": 4
+ },
+ {
+  "name": "Ljosland skisenter",
+  "lat": 58.784,
+  "lon": 7.335,
+  "base": 530,
+  "top": 770,
+  "liftCount": 4
+ },
+ {
+  "name": "Renåfjellet alpinsenter",
+  "lat": 61.711,
+  "lon": 11.296,
+  "base": 620,
+  "top": 860,
+  "liftCount": 1
+ },
+ {
+  "name": "Bortelid Skisenter",
+  "lat": 58.829,
+  "lon": 7.474,
+  "base": 590,
+  "top": 820,
+  "liftCount": 5
+ },
+ {
+  "name": "Storeskar skisenter",
+  "lat": 59.577,
+  "lon": 9.253,
+  "base": 100,
+  "top": 330,
+  "liftCount": 2
+ },
+ {
+  "name": "Sunnfjord skisenter",
+  "lat": 61.474,
+  "lon": 5.739,
+  "base": 340,
+  "top": 560,
+  "liftCount": 3
+ },
+ {
+  "name": "Solbergsbacken",
+  "lat": 63.797,
+  "lon": 17.631,
+  "base": 360,
+  "top": 580,
+  "liftCount": 2
+ },
+ {
+  "name": "Salla Ski Resort",
+  "lat": 66.764,
+  "lon": 28.779,
+  "base": 250,
+  "top": 460,
+  "liftCount": 7
+ },
+ {
+  "name": "Breimsbygda Skisenter",
+  "lat": 61.766,
+  "lon": 6.509,
+  "base": 630,
+  "top": 840,
+  "liftCount": 3
+ },
+ {
+  "name": "Sjusjøen Skisenter",
+  "lat": 61.12,
+  "lon": 10.746,
+  "base": 740,
+  "top": 950,
+  "liftCount": 3
+ },
+ {
+  "name": "Finnsnes Skiklubb",
+  "lat": 69.244,
+  "lon": 18.035,
+  "base": 120,
+  "top": 330,
+  "liftCount": 1
+ },
+ {
+  "name": "Klimpfjällsbackarna",
+  "lat": 65.066,
+  "lon": 14.786,
+  "base": 600,
+  "top": 800,
+  "liftCount": 3
+ },
+ {
+  "name": "Fulufjellet alpinsenter",
+  "lat": 61.39,
+  "lon": 12.753,
+  "base": 520,
+  "top": 720,
+  "liftCount": 2
+ },
+ {
+  "name": "Bjørnestad Skisenter",
+  "lat": 58.662,
+  "lon": 6.588,
+  "base": 400,
+  "top": 600,
+  "liftCount": 1
+ },
+ {
+  "name": "Åkersjöns Skidbacke",
+  "lat": 63.779,
+  "lon": 14.017,
+  "base": 520,
+  "top": 720,
+  "liftCount": 1
+ },
+ {
+  "name": "Sysendalen Skisenter",
+  "lat": 60.417,
+  "lon": 7.337,
+  "base": 790,
+  "top": 990,
+  "liftCount": 1
+ },
+ {
+  "name": "Valfjället Skicenter",
+  "lat": 59.826,
+  "lon": 12.251,
+  "base": 100,
+  "top": 290,
+  "liftCount": 4
+ },
+ {
+  "name": "Ukko-Kolin hiihtokeskus",
+  "lat": 63.1,
+  "lon": 29.812,
+  "base": 120,
+  "top": 310,
+  "liftCount": 3
+ },
+ {
+  "name": "Finse Skisenter",
+  "lat": 60.606,
+  "lon": 7.51,
+  "base": 1240,
+  "top": 1430,
+  "liftCount": 1
+ },
+ {
+  "name": "Frei alpinsenter",
+  "lat": 63.047,
+  "lon": 7.774,
+  "base": 110,
+  "top": 300,
+  "liftCount": 1
+ },
+ {
+  "name": "Kungsberget",
+  "lat": 60.756,
+  "lon": 16.496,
+  "base": 120,
+  "top": 300,
+  "liftCount": 10
+ },
+ {
+  "name": "Järvsöbacken",
+  "lat": 61.719,
+  "lon": 16.152,
+  "base": 180,
+  "top": 360,
+  "liftCount": 9
+ },
+ {
+  "name": "Olos Ski Resort",
+  "lat": 67.928,
+  "lon": 23.814,
+  "base": 330,
+  "top": 510,
+  "liftCount": 5
+ },
+ {
+  "name": "Savalan skisenter",
+  "lat": 62.315,
+  "lon": 10.528,
+  "base": 750,
+  "top": 930,
+  "liftCount": 3
+ },
+ {
+  "name": "Røros Alpinsenter Hummelfjell",
+  "lat": 62.479,
+  "lon": 11.237,
+  "base": 670,
+  "top": 850,
+  "liftCount": 3
+ },
+ {
+  "name": "STORKLINTEN",
+  "lat": 66.022,
+  "lon": 21.255,
+  "base": 80,
+  "top": 260,
+  "liftCount": 3
+ },
+ {
+  "name": "Gopshusbacken",
+  "lat": 61.094,
+  "lon": 14.249,
+  "base": 240,
+  "top": 420,
+  "liftCount": 2
+ },
+ {
+  "name": "Vuokatinrinteet",
+  "lat": 64.132,
+  "lon": 28.272,
+  "base": 150,
+  "top": 320,
+  "liftCount": 7
+ },
+ {
+  "name": "Bekken skileik",
+  "lat": 63.4,
+  "lon": 10.482,
+  "base": 110,
+  "top": 280,
+  "liftCount": 3
+ },
+ {
+  "name": "Fjellhaugen skisenter",
+  "lat": 59.848,
+  "lon": 6.067,
+  "base": 510,
+  "top": 680,
+  "liftCount": 2
+ },
+ {
+  "name": "Gautefall skisenter",
+  "lat": 59.058,
+  "lon": 8.726,
+  "base": 460,
+  "top": 630,
+  "liftCount": 2
+ },
+ {
+  "name": "Paljakan matkailu- ja hiihtokeskus",
+  "lat": 64.676,
+  "lon": 27.955,
+  "base": 160,
+  "top": 320,
+  "liftCount": 7
+ },
+ {
+  "name": "Brattstølen Skisenter",
+  "lat": 60.865,
+  "lon": 9.214,
+  "base": 760,
+  "top": 920,
+  "liftCount": 2
+ },
+ {
+  "name": "Vintervasskleiva",
+  "lat": 63.418,
+  "lon": 10.254,
+  "base": 390,
+  "top": 550,
+  "liftCount": 2
+ },
+ {
+  "name": "Skarslia Ski- og Akesenter",
+  "lat": 60.686,
+  "lon": 8.285,
+  "base": 910,
+  "top": 1070,
+  "liftCount": 1
+ },
+ {
+  "name": "Hiihtokeskus Ukkohalla",
+  "lat": 64.741,
+  "lon": 28.252,
+  "base": 200,
+  "top": 350,
+  "liftCount": 5
+ },
+ {
+  "name": "Luossavaarabacken",
+  "lat": 67.874,
+  "lon": 20.215,
+  "base": 570,
+  "top": 720,
+  "liftCount": 3
+ },
+ {
+  "name": "Jardarkollen",
+  "lat": 59.903,
+  "lon": 10.48,
+  "base": 20,
+  "top": 170,
+  "liftCount": 2
+ },
+ {
+  "name": "Kappruet",
+  "lat": 62.67,
+  "lon": 12.77,
+  "base": 700,
+  "top": 850,
+  "liftCount": 2
+ },
+ {
+  "name": "Torsbustaden alpinsenter",
+  "lat": 63.684,
+  "lon": 11.308,
+  "base": 230,
+  "top": 380,
+  "liftCount": 2
+ },
+ {
+  "name": "Gullingen skisenter",
+  "lat": 59.412,
+  "lon": 6.467,
+  "base": 640,
+  "top": 790,
+  "liftCount": 2
+ },
+ {
+  "name": "Tjamstanbackana",
+  "lat": 65.18,
+  "lon": 18.759,
+  "base": 320,
+  "top": 460,
+  "liftCount": 4
+ },
+ {
+  "name": "Oslo Skisenter",
+  "lat": 59.957,
+  "lon": 10.809,
+  "base": 230,
+  "top": 370,
+  "liftCount": 4
+ },
+ {
+  "name": "Aktiven skiheis",
+  "lat": 60.378,
+  "lon": 6.006,
+  "base": 400,
+  "top": 540,
+  "liftCount": 4
+ },
+ {
+  "name": "Vallåsen",
+  "lat": 56.383,
+  "lon": 13.106,
+  "base": 50,
+  "top": 180,
+  "liftCount": 7
+ },
+ {
+  "name": "Hovfjället",
+  "lat": 60.295,
+  "lon": 12.971,
+  "base": 400,
+  "top": 530,
+  "liftCount": 5
+ },
+ {
+  "name": "Riihivuori Resort",
+  "lat": 62.109,
+  "lon": 25.693,
+  "base": 80,
+  "top": 200,
+  "liftCount": 4
+ },
+ {
+  "name": "Messilän Lumikeskus",
+  "lat": 61.016,
+  "lon": 25.553,
+  "base": 80,
+  "top": 190,
+  "liftCount": 8
+ },
+ {
+  "name": "Sappee",
+  "lat": 61.39,
+  "lon": 24.509,
+  "base": 100,
+  "top": 200,
+  "liftCount": 6
+ },
+ {
+  "name": "Väsjöbacken",
+  "lat": 59.453,
+  "lon": 17.973,
+  "base": 20,
+  "top": 90,
+  "liftCount": 6
+ },
+ {
+  "name": "Vihti Ski Center",
+  "lat": 60.377,
+  "lon": 24.369,
+  "base": 50,
+  "top": 120,
+  "liftCount": 6
+ },
+ {
+  "name": "Sveitsin Hiihtokeskus",
+  "lat": 60.654,
+  "lon": 24.82,
+  "base": 90,
+  "top": 160,
+  "liftCount": 4
+ },
+ {
+  "name": "Kalpalinna",
+  "lat": 60.93,
+  "lon": 24.597,
+  "base": 100,
+  "top": 150,
+  "liftCount": 7
+ },
+ {
+  "name": "Serena Ski",
+  "lat": 60.326,
+  "lon": 24.736,
+  "base": 60,
+  "top": 90,
+  "liftCount": 5
+ }
+]

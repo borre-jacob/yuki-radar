@@ -106,7 +106,7 @@ def main(out):
         except Exception as e:
             print(slug, "failed:", e, file=sys.stderr)
         time.sleep(1)
-    result["_fetched"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    # No fetch timestamp in the file: the daily job only commits when a bulletin actually changed
     json.dump(result, open(out, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 
 
