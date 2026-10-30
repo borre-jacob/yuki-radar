@@ -122,6 +122,11 @@ select{font:inherit;font-size:14px;padding:7px 10px;border-radius:10px;border:1p
 .poi .t{font-size:12px;color:var(--muted)}
 .poi .d{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
 .poi a{font-size:12px}
+.poi .n button{all:unset;cursor:pointer;border-bottom:1px dashed var(--muted)}
+.poi .n button:hover,.poi .n button:focus-visible{color:var(--c);border-bottom-color:var(--c)}
+@keyframes poipulse{0%,100%{stroke-opacity:1;stroke-width:3px}50%{stroke-opacity:.35;stroke-width:7px}}
+.poi-halo{animation:poipulse 1.4s ease-in-out infinite}
+.poi.sel{background:color-mix(in srgb,var(--c) 14%,transparent);border-radius:8px}
 .links{font-size:12px;margin-top:3px;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}
 .leaflet-popup .links{margin:4px 0}
 .tips{font-size:13px;color:var(--muted);margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
@@ -1204,20 +1209,49 @@ function drawPois(r){
   poiLayer.clearLayers();
   Object.keys(POI_TYPES).forEach(k => { const el = $("#cnt-"+k); if (el) el.textContent = items.filter(i => i.type===k).length; });
   const shown = items.filter(i => poiOn[i.type]);
-  shown.forEach(i => {
+  poiHalo = null; poiSel = null;
+  poiMarkers = shown.map((i, n) => {
     const c = css(POI_TYPES[i.type].c);
-    L.circleMarker([i.lat, i.lon], {radius:5, color:"#fff", weight:1.5, fillColor:c, fillOpacity:1})
+    return L.circleMarker([i.lat, i.lon], {radius:5, color:"#fff", weight:1.5, fillColor:c, fillOpacity:1})
       .addTo(poiLayer)
+      .on("click", () => selectPoi(n, false))
       .bindPopup(`<b>${esc(i.name)}</b>${i.jp?`<br>${esc(i.jp)}`:""}<br>${esc(i.sub)}${i.hours?`<br>Öppet: ${esc(i.hours)}`:""}<br>${fmt(i.d,1)} km från backen${onsenLinks(i)}<a href="${gmapsDir(i.lat,i.lon)}" target="_blank" rel="noopener">Vägbeskrivning i Google Maps ↗</a>`);
   });
-  $("#pois").innerHTML = shown.slice(0, 120).map(i => `
-    <div class="poi" style="--c:var(${POI_TYPES[i.type].c})">
+  $("#pois").innerHTML = shown.slice(0, 120).map((i, n) => `
+    <div class="poi" data-n="${n}" style="--c:var(${POI_TYPES[i.type].c})">
       <i></i>
-      <div style="min-width:0"><div class="n">${esc(i.name)}${i.jp?` <span class="t">${esc(i.jp)}</span>`:""}</div>
+      <div style="min-width:0"><div class="n"><button type="button" title="Visa på kartan">${esc(i.name)}</button>${i.jp?` <span class="t">${esc(i.jp)}</span>`:""}</div>
         <div class="t">${esc(i.sub)}${i.hours?` · ${esc(i.hours)}`:""}</div>${onsenLinks(i)}</div>
       <div class="d">${fmt(i.d,1)} km<br><a href="${gmapsDir(i.lat,i.lon)}" target="_blank" rel="noopener">Vägbeskrivning ↗</a></div>
     </div>`).join("") || `<div class="msg">Inget hittat i OpenStreetMap för de valda kategorierna. Prova att slå på fler kategorier.</div>`;
 }
+
+// Highlight one facility: bigger dot with a halo, map pans to it, list row is marked
+let poiMarkers = [], poiHalo = null, poiSel = null;
+function selectPoi(n, fromList){
+  const m = poiMarkers[n]; if (!m || !poiMap) return;
+  if (poiSel) poiSel.setStyle({radius:5, weight:1.5, color:"#fff"});
+  if (poiHalo) poiHalo.remove();
+  const c = m.options.fillColor;
+  poiHalo = L.circleMarker(m.getLatLng(), {radius:22, color:"#ff2d6f", weight:3, fillColor:c, fillOpacity:.25, interactive:false, className:"poi-halo"}).addTo(poiLayer);
+  m.setStyle({radius:11, weight:3, color:"#111"}).bringToFront();
+  poiSel = m;
+  document.querySelectorAll("#pois .poi.sel").forEach(el => el.classList.remove("sel"));
+  const row = $(`#pois .poi[data-n="${n}"]`);
+  if (row){
+    row.classList.add("sel");
+    if (!fromList) row.scrollIntoView({block:"nearest", behavior:"smooth"});
+  }
+  if (fromList){
+    poiMap.flyTo(m.getLatLng(), Math.max(poiMap.getZoom(), 15), {duration:.6});
+    const box = $("#poimap").getBoundingClientRect();
+    if (box.top < 0 || box.bottom > innerHeight) $("#poimap").scrollIntoView({block:"center", behavior:"smooth"});
+  }
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("#pois .n button");
+  if (b) selectPoi(+b.closest(".poi").dataset.n, true);
+});
 
 // ---------- Routing ----------
 function go(id){ if (location.hash.slice(1) === id) route(); else location.hash = id; }
