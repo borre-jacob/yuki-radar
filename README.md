@@ -7,6 +7,15 @@ Snöprognos, lavinläge, liftar, onsen/bastu, toaletter och parkering för skidr
 
 Allt ligger i `index.html`. Öppna filen i en webbläsare, eller publicera repot med GitHub Pages för att använda appen i mobilen.
 
+## Installera som app
+
+Yuki Radar är en PWA och fungerar offline: prognoser, lavinläge och kartdelar som du redan har tittat på finns kvar utan täckning (med en gul banner "Offline – visar senast hämtade data").
+
+- **iPhone:** öppna sidan i Safari → Dela → *Lägg till på hemskärmen*.
+- **Android:** öppna sidan i Chrome → menyn ⋮ → *Installera app*.
+
+Service workern ligger i `sw.js`. Höj `VERSION` där när `sw.js`, ikonerna eller manifestet ändras. Då visar appen "Ny version finns – ladda om". Ändringar i `index.html` kommer med automatiskt.
+
 ## Datakällor
 
 - Väder: [Open-Meteo](https://open-meteo.com/), hämtas live när sidan öppnas.
@@ -21,18 +30,29 @@ Allt ligger i `index.html`. Öppna filen i en webbläsare, eller publicera repot
 Nya orter läggs i en JSON-fil med ungefärliga koordinater och placeras sedan exakt utifrån liftarna:
 
 ```bash
-python3 tools/refine_resorts.py data/scandinavia_approx.json data/scandinavia.json
+python3 tools/refine_resorts.py data/scandinavia_approx.json data/osm/scandinavia.json
 ```
 
 ## Uppdatera platsdatan
 
 ```bash
-python3 tools/fetch_pois.py index.html data/pois.json
-python3 tools/inject.py index.html data/pois.json
-python3 tools/fetch_lifts.py index.html data/lifts.json
-python3 tools/inject_lifts.py index.html data/lifts.json
+python3 tools/fetch_pois.py index.html data/osm/pois.json
+python3 tools/inject.py index.html data/osm/pois.json
+python3 tools/fetch_lifts.py index.html data/osm/lifts.json
+python3 tools/inject_lifts.py index.html data/osm/lifts.json
 python3 tools/fetch_avalanche.py data/avalanche.json
 python3 tools/inject_avalanche.py index.html data/avalanche.json
 ```
 
-`fetch_pois.py` hoppar över orter som redan finns i `data/pois.json`. Ta bort filen för att hämta allt på nytt. Overpass-servrarna är ofta överbelastade, så räkna med att det tar en stund.
+`fetch_pois.py` hoppar över orter som redan finns i `data/osm/pois.json`. Ta bort filen för att hämta allt på nytt. Overpass-servrarna är ofta överbelastade, så räkna med att det tar en stund.
+
+## Licens och källor
+
+© 2026 Jacob Borre.
+
+- **Koden** (HTML, CSS, JavaScript, `sw.js`, skripten i `tools/`, ikonerna) är licensierad under [MIT](LICENSE).
+- **OpenStreetMap-data** (orter, liftar, onsen, toaletter, parkering) ligger i [`data/osm/`](data/osm/) och är också inbyggd i `index.html`. Den är © OpenStreetMap-bidragsgivare och licensierad under [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/), inte MIT. Se [data/osm/README.md](data/osm/README.md).
+- **Väder** från [Open-Meteo](https://open-meteo.com/) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- **Kartstil och kartrutor** från [OpenFreeMap](https://openfreemap.org/) (© OpenMapTiles, © OpenStreetMap-bidragsgivare).
+- **Lavinprognoser** från Japan Avalanche Network, Varsom (NVE) och Naturvårdsverket (lavinprognoser.se). Texterna tillhör respektive utgivare.
+- **Google Maps** används bara med användarens egen API-nyckel. Kartrutor och skript från Google cachas aldrig av appen.

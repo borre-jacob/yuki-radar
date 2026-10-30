@@ -1,7 +1,7 @@
 """Fetch facilities for many resorts at once (groups of nearby resorts per Overpass query).
 
-Usage: python3 tools/fetch_pois_batch.py index.html data/pois.json
-Same output rows as tools/fetch_pois.py; resorts already in data/pois.json are skipped.
+Usage: python3 tools/fetch_pois_batch.py index.html data/osm/pois.json
+Same output rows as tools/fetch_pois.py; resorts already in data/osm/pois.json are skipped.
 Radii: toilets 12 km, saunas/baths and overnight places 30 km, car parks 4 km.
 """
 import json, math, os, re, subprocess, sys, time

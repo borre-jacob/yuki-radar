@@ -1,11 +1,11 @@
 """Find ski resorts in Norway, Sweden and Finland from OpenStreetMap.
 
-Usage: python3 tools/discover_resorts.py data/scandinavia.json data/scandinavia_found.json
+Usage: python3 tools/discover_resorts.py data/osm/scandinavia.json data/osm/scandinavia_found.json
 
 A resort is a named ski area (landuse=winter_sports) with lifts. Each lift is assigned to the
 nearest named ski area within 2.5 km. Base/top come from the lowest/highest lift station
 (Open-Meteo elevation data). Small hills are dropped: at least 150 m vertical or 4 lifts.
-Areas within 3 km of a resort already in data/scandinavia.json are skipped.
+Areas within 3 km of a resort already in data/osm/scandinavia.json are skipped.
 """
 import json, math, subprocess, sys, time
 

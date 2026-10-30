@@ -154,6 +154,8 @@ select{font:inherit;font-size:14px;padding:7px 10px;border-radius:10px;border:1p
 .ramp-bar{display:block;width:150px;height:10px;border-radius:3px}
 .ramp-l{display:flex;justify-content:space-between;width:150px;font-family:var(--mono);color:var(--muted)}
 footer{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:8px}
+footer p{margin:0}
+footer .copy{color:var(--ink);font-weight:600}
 .gset summary{cursor:pointer;font-weight:600;color:var(--ink)}
 .gset p{margin:6px 0;max-width:70ch}
 .gform{display:flex;gap:6px;flex-wrap:wrap}
@@ -215,14 +217,22 @@ details.sig p{margin:0 0 12px 90px;font-size:14px;color:var(--muted);max-width:7
   <div class="banner upd" id="swbanner" role="status" hidden>Ny version finns – <button type="button" id="swreload">ladda om</button></div>
   <main id="app"></main>
   <footer>
-    Väder: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (modelldata, beräknat för backens mellanhöjd).
-    Onsen, toaletter och parkering: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a>-bidragsgivare.
-    Koordinater för orterna är ungefärliga.
+    <p class="copy">© 2026 Jacob Borre – Yuki Radar. Koden är <a href="https://github.com/borre-jacob/yuki-radar/blob/main/LICENSE" target="_blank" rel="noopener">MIT-licensierad</a>.</p>
+    <p class="src">Väder: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>
+      (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>), modelldata beräknad för backens mellanhöjd.
+      Orter, liftar, onsen, toaletter och parkering: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap-bidragsgivare</a>
+      (<a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener">ODbL 1.0</a>).
+      Kartstil: <a href="https://openfreemap.org/" target="_blank" rel="noopener">OpenFreeMap</a>.
+      Lavinprognoser: Japan Avalanche Network, Varsom (NVE) och Naturvårdsverket.
+      Koordinater för orterna är ungefärliga.</p>
     <details class="gset" id="gset">
       <summary>Kartinställning: <span id="gstatus">OpenFreeMap</span></summary>
       <p>För att visa Google Maps i appen behövs en egen API-nyckel från Google (gratis upp till en generös månadsgräns, men kräver ett betalkort i Google Cloud).
         <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank" rel="noopener">Så skaffar du en nyckel ↗</a>.
         Aktivera "Maps JavaScript API". Nyckeln sparas bara i den här webbläsaren.</p>
+      <p><b>Begränsa nyckeln</b> så att ingen annan kan använda den: i Google Cloud, under API:er och tjänster → Inloggningsuppgifter,
+        välj nyckeln och sätt <i>Programbegränsningar</i> till <i>Webbplatser</i> (HTTP-referrer) med bara din egen domän,
+        t.ex. <code>https://borre-jacob.github.io/*</code>. Begränsa den gärna också till Maps JavaScript API.</p>
       <form id="gform" class="gform">
         <input id="gkey" type="password" autocomplete="off" placeholder="Klistra in din Google Maps API-nyckel" aria-label="Google Maps API-nyckel">
         <button type="submit">Spara och ladda om</button>

@@ -1,7 +1,7 @@
 """Fetch ski lift lines around every resort.
 
-Usage: python3 tools/fetch_lifts.py index.html data/lifts.json
-Resorts already in data/lifts.json with lifts are kept; the rest are fetched in groups of 20
+Usage: python3 tools/fetch_lifts.py index.html data/osm/lifts.json
+Resorts already in data/osm/lifts.json with lifts are kept; the rest are fetched in groups of 20
 (one Overpass query for all resorts at once is too big for the servers).
 """
 import json, math, os, re, subprocess, sys, time

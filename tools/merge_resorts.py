@@ -1,6 +1,6 @@
-"""Merge discovered resorts into data/scandinavia.json and give every resort its county.
+"""Merge discovered resorts into data/osm/scandinavia.json and give every resort its county.
 
-Usage: python3 tools/merge_resorts.py data/scandinavia.json data/scandinavia_found.json data/scandinavia_extra.json
+Usage: python3 tools/merge_resorts.py data/osm/scandinavia.json data/osm/scandinavia_found.json data/scandinavia_extra.json
 Every row gets: id, name, country (Sverige/Norge/Finland), region (county, from Nominatim), lat, lon, base, top.
 """
 import json, re, subprocess, sys, time, unicodedata
